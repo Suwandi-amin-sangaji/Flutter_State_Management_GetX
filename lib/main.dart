@@ -26,25 +26,24 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.amber,
-        title: Text("SNAPBAR GETX"),
+        title: Text("DIALOG GETX"),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            // ScaffoldMessenger.of(context).showSnackBar(
-            //   SnackBar(
-            //     content: Text("SNACKBAR"),
-            //     action: SnackBarAction(
-            //       label: "CANCEL",
-            //       onPressed: () {},
-            //     ),
-            //   ),
-            // );WS
-            Get.snackbar(
-              "Notifikasi",
-              "INI ADALAH SNACKBAR GETXS",
-              snackPosition: SnackPosition.BOTTOM,
-              backgroundColor: Colors.red,
+            Get.defaultDialog(
+              title: "Hello",
+              middleText: "Ini Adalah Contoh Pembuatan Dialog menggunakan Getx",
+              actions: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text("OK"),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text("Cancel"),
+                )
+              ],
             );
           },
           child: Text("CLICK ME"),
