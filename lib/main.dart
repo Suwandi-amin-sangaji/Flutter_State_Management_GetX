@@ -11,66 +11,45 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  final myController = Get.put(Controller());
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    print("INI AKAN DI RENDER SEMUA JIKA TIDAK ADA GETX");
     return Scaffold(
-      drawerEnableOpenDragGesture: false,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         centerTitle: true,
-        title: Text('GetX'),
+        backgroundColor: Colors.amber,
+        title: Text("SNAPBAR GETX"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Obx(
-            () {
-              print("INI AKAN DI RENDER KETIKA TIDAK ADA GETX");
-              return Text(
-                '${myController.data.value}',
-                style: TextStyle(fontSize: 55),
-              );
-            },
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  myController.decrement();
-                },
-                child: Text('-'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  myController.increment();
-                },
-                child: Text('+'),
-              ),
-            ],
-          )
-        ],
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // ScaffoldMessenger.of(context).showSnackBar(
+            //   SnackBar(
+            //     content: Text("SNACKBAR"),
+            //     action: SnackBarAction(
+            //       label: "CANCEL",
+            //       onPressed: () {},
+            //     ),
+            //   ),
+            // );WS
+            Get.snackbar(
+              "Notifikasi",
+              "INI ADALAH SNACKBAR GETXS",
+              snackPosition: SnackPosition.BOTTOM,
+              backgroundColor: Colors.red,
+            );
+          },
+          child: Text("CLICK ME"),
+        ),
       ),
     );
-  }
-}
-
-class Controller extends GetxController {
-  var data = 0.obs; //state yang akan selalu di panatau perubahannya.
-  increment() {
-    data = data + 1;
-  }
-
-  decrement() {
-    data = data - 1;
   }
 }
