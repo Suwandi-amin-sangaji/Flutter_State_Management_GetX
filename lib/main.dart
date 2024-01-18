@@ -26,27 +26,48 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.amber,
-        title: Text("DIALOG GETX"),
+        title: Text("BOTTOM SHEET GETX"),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Get.defaultDialog(
-              title: "Hello",
-              middleText: "Ini Adalah Contoh Pembuatan Dialog menggunakan Getx",
-              actions: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text("OK"),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text("Cancel"),
-                )
-              ],
+            // showModalBottomSheet(
+            //   context: context,
+            //   builder: (context) => Container(
+            //     height: 200,
+            //     color: Colors.amber,
+            //     child: ListView(
+            //       children: [
+            //         ListTile(
+            //           leading: Icon(Icons.home),
+            //           title: Text("HOME"),
+            //         ),
+            //         ListTile(
+            //           leading: Icon(Icons.person),
+            //           title: Text("PROFILE"),
+            //         ),
+            //         ListTile(
+            //           leading: Icon(Icons.settings),
+            //           title: Text("SETTINGS"),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // );
+
+            Get.bottomSheet(
+              Container(
+                  height: 200,
+                  color: Colors.amber,
+                  child: ListView(children: [
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text("HOME"),
+                    )
+                  ])),
             );
           },
-          child: Text("CLICK ME"),
+          child: Text("BOTTOM SHEET"),
         ),
       ),
     );
