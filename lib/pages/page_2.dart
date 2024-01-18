@@ -20,7 +20,7 @@ class PageDua extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  Get.to(Pagetiga());
+                  Get.toNamed('page_tiga');
                 },
                 child: Text('NEXT'),
               ),

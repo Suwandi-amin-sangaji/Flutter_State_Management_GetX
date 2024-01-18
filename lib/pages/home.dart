@@ -17,12 +17,13 @@ class HomePage extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PageSatu(),
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => PageSatu(),
+              //   ),
+              // );
+              Navigator.of(context).pushNamed('/page_satu');
             },
             child: Text('Page 1'),
           ),
@@ -34,8 +35,9 @@ class HomePage extends StatelessWidget {
               //     builder: (context) => PageSatu(),
               //   ),
               // );
-              Get.to(PageDua());
+              // Get.to(PageDua());
               // Get.off(PageDua());
+              Get.toNamed('page_dua');
             },
             child: Text('Page 2'),
           ),

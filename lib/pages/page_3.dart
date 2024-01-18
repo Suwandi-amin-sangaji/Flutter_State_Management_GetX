@@ -21,6 +21,7 @@ class Pagetiga extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   Get.offAll(HomePage());
+                  // Get.back();
                 },
                 child: Text('<<BACK'),
               ),
