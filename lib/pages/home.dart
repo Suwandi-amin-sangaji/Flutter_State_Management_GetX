@@ -9,49 +9,44 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: Text('Home'),
+        backgroundColor: Colors.amber,
+        centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Obx(
-            //   () => Text(
-            //     '${homeC.data}',
-            //     style: TextStyle(
-            //       fontSize: 50,
-            //     ),
-            //   ),
-            // ),
-
-            GetBuilder<HomeController>(
-              builder: (controller) => Text(
-                '${homeC.data}',
-                style: TextStyle(
-                  fontSize: 50,
+      body: ListView(
+        padding: EdgeInsets.all(20),
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Obx(
+                () => Text(
+                  '${homeC.data}',
+                  style: TextStyle(fontSize: 20),
                 ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    homeC.tambahData();
-                  },
-                  child: Text('Tambah Data'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // homeC.tambahData();
-                    homeC.refreshData();
-                  },
-                  child: Text('Refresh Data Dulu'),
-                ),
-              ],
-            )
-          ],
-        ),
+              Row( 
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      homeC.increment();
+                    },
+                    child: Text('+'),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      homeC.decrement();
+                    },
+                    child: Text('-'),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
